@@ -1,68 +1,88 @@
+﻿import { SectionHeading } from "./SectionHeading";
+
+const experienceItems = [
+  {
+    title: "Auxiliar en Soporte y Sistemas",
+    company: "Politécnico San Juan de Pasto",
+    period: "Ene 2025 - Jun 2025",
+    bullets: [
+      "Mantenimientos preventivos y correctivos a equipos de cómputo",
+      "Instalación/configuración de redes cableadas e inalámbricas",
+      "Instalación y configuración de cámaras de seguridad",
+      "Soporte a usuarios en plataformas digitales",
+    ],
+  },
+  {
+    title: "Ingeniería de Software",
+    company: "Universidad Cooperativa de Colombia - Campus Pasto",
+    period: "2024 - Presente",
+    bullets: [],
+  },
+  {
+    title: "Técnico Laboral en Soporte, Sistemas e Informática",
+    company: "CINAR Sistemas",
+    period: "2023 - 2025",
+    bullets: [],
+  },
+  {
+    title: "Bachiller Académico",
+    company: "Instituto San Francisco de Asís",
+    period: "Finalizado 2023",
+    bullets: [],
+  },
+  {
+    title: "Auxiliar Administrativo",
+    company: "Mundo Click",
+    period: "2018 - 2020",
+    bullets: [
+      "Monitoreo y control de inventario de materiales y productos",
+      "Organización y gestión de recursos administrativos",
+    ],
+  },
+];
+
 export function ExperienceSection() {
   return (
-    <section className="bg-white p-4 sm:p-8 rounded-lg shadow-sm mb-6 max-w-6xl mx-auto">
-      <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center">Experiencia</h2>
+    <section
+      id="experiencia"
+      className="section-shell px-6 py-10 md:px-10 md:py-12"
+    >
+      <SectionHeading
+        kicker="Experiencia"
+        title="Una trayectoria que mezcla formación técnica, academia y soporte real."
+        description="Un recorrido enfocado en sistemas, soporte tecnológico y aprendizaje continuo, con experiencia académica y laboral que aterriza en proyectos funcionales."
+      />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Timeline izquierda: Académica */}
-        <div className="relative pt-4">
-          <h3 className="text-lg sm:text-xl font-bold mb-4">Experiencia Académica</h3>
-
-          <div className="absolute left-4 top-10 bottom-0 w-0.5 bg-gray-300" />
-          <div className="space-y-6 pl-10">
-            <article className="relative bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm">
-              <div className="absolute -left-5 top-5 h-3 w-3 rounded-full bg-blue-600 border-2 border-white" />
-              <p className="text-xs uppercase font-semibold tracking-wide text-blue-900">2024 - Presente</p>
-              <h4 className="font-bold text-base sm:text-lg text-gray-900">Ingeniería de Software</h4>
-              <p className="text-sm text-gray-900">Universidad Cooperativa de Colombia – Campus Pasto</p>
+      <div className="relative mt-10 pl-8 md:pl-12">
+        <div className="absolute bottom-0 left-3 top-2 w-px bg-gradient-to-b from-primary via-primary/30 to-transparent md:left-4" />
+        <div className="space-y-6">
+          {experienceItems.map((item) => (
+            <article
+              key={`${item.title}-${item.period}`}
+              className="relative rounded-[1.75rem] border border-border bg-background/70 p-6 shadow-[0_16px_60px_-42px_rgba(15,23,42,0.7)]"
+            >
+              <div className="absolute left-[-2rem] top-8 h-4 w-4 rounded-full border-4 border-background bg-primary md:left-[-2.55rem]" />
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+                {item.period}
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-base font-medium text-muted-foreground">
+                {item.company}
+              </p>
+              {item.bullets.length ? (
+                <ul className="mt-5 space-y-3 text-sm leading-7 text-muted-foreground md:text-base">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3">
+                      <span className="mt-2 h-2 w-2 rounded-full bg-primary" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </article>
-
-            <article className="relative bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm">
-              <div className="absolute -left-5 top-5 h-3 w-3 rounded-full bg-blue-600 border-2 border-white" />
-              <p className="text-xs uppercase font-semibold tracking-wide text-blue-900">2023 - 2025</p>
-              <h4 className="font-bold text-base sm:text-lg text-gray-900">Técnico Laboral en Soporte, Sistemas e Informática</h4>
-              <p className="text-sm text-gray-900">CINAR Sistemas</p>
-            </article>
-
-            <article className="relative bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm">
-              <div className="absolute -left-5 top-5 h-3 w-3 rounded-full bg-blue-600 border-2 border-white" />
-              <p className="text-xs uppercase font-semibold tracking-wide text-blue-900">Finalizado 2023</p>
-              <h4 className="font-bold text-base sm:text-lg text-gray-900">Bachiller Académico</h4>
-              <p className="text-sm text-gray-900">Instituto San Francisco de Asís</p>
-            </article>
-          </div>
-        </div>
-
-        {/* Timeline derecha: Laboral */}
-        <div className="relative pt-4">
-          <h3 className="text-lg sm:text-xl font-bold mb-4">Experiencia Laboral</h3>
-
-          <div className="absolute left-4 top-10 bottom-0 w-0.5 bg-gray-300" />
-          <div className="space-y-6 pl-10">
-            <article className="relative bg-purple-50 border border-purple-200 rounded-xl p-4 shadow-sm">
-              <div className="absolute -left-5 top-5 h-3 w-3 rounded-full bg-purple-600 border-2 border-white" />
-              <p className="text-xs uppercase font-semibold tracking-wide text-purple-700">Ene 2025 - Jun 2025</p>
-              <h4 className="font-bold text-base sm:text-lg">Auxiliar en Soporte y Sistemas</h4>
-              <p className="text-sm text-purple-700 font-semibold">Politécnico San Juan de Pasto</p>
-              <ul className="mt-2 list-disc list-inside text-sm text-gray-900 space-y-1">
-                <li>Mantenimientos preventivos y correctivos a equipos de cómputo</li>
-                <li>Instalación/configuración de redes cableadas e inalámbricas</li>
-                <li>Instalación y configuración de cámaras de seguridad</li>
-                <li>Soporte a usuarios en plataformas digitales</li>
-              </ul>
-            </article>
-
-            <article className="relative bg-purple-50 border border-purple-200 rounded-xl p-4 shadow-sm">
-              <div className="absolute -left-5 top-5 h-3 w-3 rounded-full bg-purple-600 border-2 border-white" />
-              <p className="text-xs uppercase font-semibold tracking-wide text-purple-700">2018 - 2020</p>
-              <h4 className="font-bold text-base sm:text-lg">Auxiliar Administrativo</h4>
-              <p className="text-sm text-purple-700 font-semibold">Mundo Click</p>
-              <ul className="mt-2 list-disc list-inside text-sm text-gray-900 space-y-1">
-                <li>Monitoreo y control de inventario de materiales y productos</li>
-                <li>Organización y gestión de recursos administrativos</li>
-              </ul>
-            </article>
-          </div>
+          ))}
         </div>
       </div>
     </section>
