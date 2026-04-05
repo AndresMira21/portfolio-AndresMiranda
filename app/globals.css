@@ -99,42 +99,6 @@
   }
 
   .section-divider {
-    @apply mt-6 h-px w-full bg-gradient-to-r from-primary/30 via-border to-transparent;
-  }
-
-  .role-fade {
-    position: absolute;
-    inset: 0;
-    display: inline-flex;
-    align-items: center;
-    opacity: 0;
-    animation: fadeRole 9s ease-in-out infinite;
-  }
-
-  .role-fade:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  .role-fade:nth-child(2) {
-    animation-delay: 3s;
-  }
-
-  .role-fade:nth-child(3) {
-    animation-delay: 6s;
-  }
-
-  @keyframes fadeRole {
-    0%, 14%, 100% {
-      opacity: 0;
-      transform: translateY(8px);
-    }
-    18%, 42% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    46%, 84% {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
+    @apply mt-6 h-px w-full bg-linear-to-r from-primary/30 via-border to-transparent;
   }
 }

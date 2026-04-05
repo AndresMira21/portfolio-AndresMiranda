@@ -25,7 +25,7 @@ const workExperience = [
   {
     title: "Auxiliar en Soporte y Sistemas",
     company: "Politécnico San Juan de Pasto",
-    period: "Ene 2025 - Jun 2025",
+    period: "Feb 2025 - Jun 2025",
     bullets: [
       "Mantenimientos preventivos y correctivos a equipos de cómputo",
       "Instalación/configuración de redes cableadas e inalámbricas",

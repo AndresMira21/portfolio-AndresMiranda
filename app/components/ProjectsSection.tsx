@@ -64,15 +64,17 @@ export function ProjectsSection() {
               }
               target="_blank"
               rel="noopener noreferrer"
-              className="relative block aspect-[16/10] overflow-hidden"
+              className="relative block aspect-16/10 overflow-hidden"
             >
               <Image
                 src={project.image}
                 alt={`Vista previa de ${project.title}`}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                loading={project.id === 2 ? "eager" : "lazy"}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent" />
             </a>
 
             <div className="space-y-5 p-6">
