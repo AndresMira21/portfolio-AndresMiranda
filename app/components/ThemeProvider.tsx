@@ -26,17 +26,13 @@ type ThemeProviderProps = {
 
 const STORAGE_KEY = "portfolio-theme";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") {
-    return "dark";
-  }
-
-  const storedTheme = window.localStorage.getItem(STORAGE_KEY);
-  return storedTheme === "light" ? "light" : "dark";
-}
-
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+    setTheme(storedTheme === "light" ? "light" : "dark");
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
