@@ -1,63 +1,75 @@
+﻿import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
+
+const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/AndresMira21",
+    icon: GitBranch,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/andres-camilo-miranda-estrada-364490296",
+    icon: BriefcaseBusiness,
+  },
+  {
+    label: "Email",
+    href: "mailto:andresestrada0630@gmail.com",
+    icon: Mail,
+  },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/573162740777",
+    icon: MessageCircleMore,
+  },
+];
+
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-6 sm:py-8">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6">
-          {/* Columna 1 */}
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-white">Andrés Miranda</h3>
-            <p className="text-gray-200 text-xs sm:text-sm">
-              Estudiante de Ingeniería de Software
-            </p>
-          </div>
-
-          {/* Columna 2 */}
-          <div>
-            <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Enlaces Rápidos</h4>
-            <div className="space-y-2">
-              <a href="#inicio" className="block text-gray-200 hover:text-white text-xs sm:text-sm">Inicio</a>
-              <a href="#proyectos" className="block text-gray-200 hover:text-white text-xs sm:text-sm">Proyectos</a>
-              <a href="#acerca" className="block text-gray-200 hover:text-white text-xs sm:text-sm">Acerca</a>
-              <a href="#contacto" className="block text-gray-200 hover:text-white text-xs sm:text-sm">Contacto</a>
-            </div>
-          </div>
-
-          {/* Columna 3 */}
-          <div>
-            <h4 className="text-base sm:text-lg font-bold mb-3 sm:mb-4">Contacto</h4>
-            <div className="space-y-2 text-xs sm:text-sm">
-              <a href="mailto:andresestrada0630@gmail.com" className="block text-gray-200 hover:text-white break-all">
-                andresestrada0630@gmail.com
-              </a>
-              <a href="https://wa.me/573162740777" className="block text-gray-200 hover:text-white">
-                +57 3162740777
-              </a>
-              <p className="text-gray-200">Pasto, Colombia</p>
-            </div>
-          </div>
+    <footer className="border-t border-border/80 bg-background/90 px-4 py-10 backdrop-blur md:px-6">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 rounded-[2rem] border border-border/80 bg-card/70 px-6 py-8 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.8)] md:flex-row md:items-end md:justify-between md:px-8">
+        <div className="space-y-3">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+            Andrés Miranda
+          </p>
+          <p className="max-w-md text-sm leading-7 text-muted-foreground md:text-base">
+            Estudiante de Ingeniería de Software con interés en desarrollo web,
+            inteligencia artificial y soluciones tecnológicas innovadoras.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            andresestrada0630@gmail.com • +57 3162740777 • Pasto, Colombia
+          </p>
         </div>
 
-        {/* Línea divisoria */}
-        <div className="border-t border-gray-700 pt-4 sm:pt-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-gray-200 text-xs sm:text-sm text-center sm:text-left">
-              © 2024 Andrés Miranda. Todos los derechos reservados.
-            </p>
-            <div className="flex gap-3 sm:gap-4">
-              <a href="https://github.com/AndresMira21" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 text-[10px] sm:text-xs">
-                GH
-              </a>
-              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 text-[10px] sm:text-xs">
-                LI
-              </div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 text-[10px] sm:text-xs">
-                TW
-              </div>
-              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 text-[10px] sm:text-xs">
-                IG
-              </div>
-            </div>
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-3">
+            {socialLinks.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/70 text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              );
+            })}
           </div>
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+            <a href="#inicio" className="hover:text-primary">Inicio</a>
+            <a href="#acerca" className="hover:text-primary">Acerca</a>
+            <a href="#experiencia" className="hover:text-primary">Experiencia</a>
+            <a href="#proyectos" className="hover:text-primary">Proyectos</a>
+            <a href="#contacto" className="hover:text-primary">Contacto</a>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            © 2026 Andrés Miranda. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>

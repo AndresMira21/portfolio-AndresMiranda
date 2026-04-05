@@ -1,6 +1,8 @@
-"use client";
+﻿"use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { SectionHeading } from "./SectionHeading";
 
 interface Testimonial {
   id: number;
@@ -12,51 +14,65 @@ interface Testimonial {
 
 export function TestimonialsSection() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([
-    { id: 1, name: "Andrés Miranda", role: "Full-stack Developer", company: "Proyecto Personal", message: "Excelente experiencia colaborando y resolviendo retos con enfoque práctico. Recomendado para equipos ágiles." },
-    { id: 2, name: "María Pérez", role: "Ingeniera de Software", company: "Proyectos Académicos", message: "Implementó soluciones robustas con buena arquitectura y documentación clara. Muy profesional." },
-    { id: 3, name: "Carlos Torres", role: "Analista de Datos", company: "Scripting y Automatización", message: "Generó scripts eficientes para automatización y reportes. Gran calidad en código y eficiencia." },
+    {
+      id: 1,
+      name: "Andrés Miranda",
+      role: "Full-stack Developer",
+      company: "Proyecto Personal",
+      message:
+        "Excelente experiencia colaborando y resolviendo retos con enfoque práctico. Recomendado para equipos ágiles.",
+    },
+    {
+      id: 2,
+      name: "María Pérez",
+      role: "Ingeniera de Software",
+      company: "Proyectos Académicos",
+      message:
+        "Implementó soluciones robustas con buena arquitectura y documentación clara. Muy profesional.",
+    },
+    {
+      id: 3,
+      name: "Carlos Torres",
+      role: "Analista de Datos",
+      company: "Scripting y Automatización",
+      message:
+        "Generó scripts eficientes para automatización y reportes. Gran calidad en código y eficiencia.",
+    },
   ]);
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
   const [isPaused, setIsPaused] = useState(false);
-  const [isFading, setIsFading] = useState(false);
 
   const activeTestimonial = testimonials[activeIndex] || testimonials[0];
-
-  const transitionToIndex = (nextIndex: number) => {
-    setIsFading(true);
-    const timeoutId = window.setTimeout(() => {
-      setActiveIndex(nextIndex);
-      setIsFading(false);
-    }, 350);
-    return () => window.clearTimeout(timeoutId);
-  };
+  const dots = useMemo(
+    () => testimonials.map((testimonial, index) => ({ id: testimonial.id, index })),
+    [testimonials],
+  );
 
   useEffect(() => {
-    if (isPaused || testimonials.length <= 1) return;
+    if (isPaused || testimonials.length <= 1) {
+      return;
+    }
+
     const interval = window.setInterval(() => {
-      setIsFading(true);
-      window.setTimeout(() => {
-        setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-        setIsFading(false);
-      }, 350);
-    }, 4000);
+      setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    }, 4500);
 
     return () => window.clearInterval(interval);
-  }, [testimonials.length, isPaused]);
-
-  const dots = useMemo(() => testimonials.map((t, index) => ({ id: t.id, index })), [testimonials]);
+  }, [isPaused, testimonials.length]);
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!name.trim() || !role.trim() || !message.trim()) return;
+
+    if (!name.trim() || !role.trim() || !message.trim()) {
+      return;
+    }
 
     const nextEntry: Testimonial = {
-      id: testimonials.length ? Math.max(...testimonials.map((t) => t.id)) + 1 : 1,
+      id: testimonials.length ? Math.max(...testimonials.map((item) => item.id)) + 1 : 1,
       name: name.trim(),
       role: role.trim(),
       company: company.trim() || "Independiente",
@@ -68,104 +84,126 @@ export function TestimonialsSection() {
     setRole("");
     setCompany("");
     setMessage("");
-
-    // Mostrar el nuevo testimonio con animación
-    setIsFading(true);
-    const nextIndex = testimonials.length;
-    window.setTimeout(() => {
-      setActiveIndex(nextIndex);
-      setIsFading(false);
-    }, 350);
+    setActiveIndex(testimonials.length);
   };
 
   return (
-    <section className="bg-white p-4 sm:p-8 rounded-lg shadow-sm mb-6 max-w-6xl mx-auto" id="testimonios">
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gray-900">Testimonios</h2>
+    <section
+      id="testimonios"
+      className="section-shell px-6 py-10 md:px-10 md:py-12"
+    >
+      <SectionHeading
+        kicker="Testimonios"
+        title="Opiniones que hablan de colaboración, ejecución y criterio técnico."
+        description="Mantengo esta sección como un espacio vivo para registrar feedback de proyectos personales y académicos."
+      />
 
-      <div className="relative mb-6" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
-        <div className={`border-2 border-gray-300 rounded-xl p-6 transition-all duration-500 ${isFading ? "opacity-0 translate-y-3" : "opacity-100 translate-y-0"}`}>
-          <p className="text-black text-base sm:text-lg font-semibold mb-3">"{activeTestimonial.message}"</p>
-          <p className="font-bold text-slate-900 text-lg">{activeTestimonial.name}</p>
-          <p className="text-blue-900 font-medium text-sm">{activeTestimonial.role} • {activeTestimonial.company}</p>
+      <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <div
+          className="rounded-[1.75rem] border border-border bg-background/70 p-6 md:p-8"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            Testimonio destacado
+          </p>
+          <blockquote className="mt-6 text-2xl font-medium leading-10 text-foreground md:text-3xl">
+            “{activeTestimonial.message}”
+          </blockquote>
+          <div className="mt-8 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-lg font-semibold text-foreground">
+                {activeTestimonial.name}
+              </p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {activeTestimonial.role} • {activeTestimonial.company}
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveIndex((prev) =>
+                    prev === 0 ? testimonials.length - 1 : prev - 1,
+                  )
+                }
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground hover:border-primary/40 hover:text-primary"
+                aria-label="Testimonio anterior"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveIndex((prev) =>
+                    prev === testimonials.length - 1 ? 0 : prev + 1,
+                  )
+                }
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground hover:border-primary/40 hover:text-primary"
+                aria-label="Siguiente testimonio"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+          <div className="mt-6 flex gap-2">
+            {dots.map((dot) => (
+              <button
+                key={dot.id}
+                type="button"
+                onClick={() => setActiveIndex(dot.index)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  activeIndex === dot.index ? "w-8 bg-primary" : "w-2.5 bg-border"
+                }`}
+                aria-label={`Ir al testimonio ${dot.index + 1}`}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="mt-4 flex justify-between items-center">
-          <button
-            className="px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-900"
-            onClick={() => transitionToIndex(activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1)}
-            aria-label="Testimonio anterior"
-          >
-            ◀ Anterior
-          </button>
-          <button
-            className="px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-900"
-            onClick={() => transitionToIndex(activeIndex === testimonials.length - 1 ? 0 : activeIndex + 1)}
-            aria-label="Siguiente testimonio"
-          >
-            Siguiente ▶
-          </button>
-        </div>
-
-        <div className="flex justify-center gap-2 mt-4">
-          {dots.map((dot) => (
-            <button
-              key={dot.id}
-              onClick={() => transitionToIndex(dot.index)}
-              aria-label={`Ir al testimonio ${dot.index + 1}`}
-              className={`w-3 h-3 rounded-full ${activeIndex === dot.index ? "bg-blue-600" : "bg-gray-300"}`}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="border-2 border-blue-300 bg-blue-100 rounded-xl p-6">
-        <h3 className="font-bold text-lg text-blue-900 mb-4">Añadir Testimonio</h3>
-        <form onSubmit={onSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label className="flex flex-col text-sm text-slate-900 font-semibold">
-            Nombre
+        <form
+          onSubmit={onSubmit}
+          className="rounded-[1.75rem] border border-border bg-background/70 p-6 md:p-8"
+        >
+          <h3 className="text-2xl font-semibold text-foreground">Añadir testimonio</h3>
+          <div className="mt-6 grid gap-4">
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="mt-1 p-2 border rounded-lg focus:outline-none focus:border-blue-400"
+              onChange={(event) => setName(event.target.value)}
+              placeholder="Nombre"
+              className="h-12 rounded-2xl border border-border bg-card px-4 text-foreground outline-none focus:border-primary"
               required
             />
-          </label>
-
-          <label className="flex flex-col text-sm text-slate-900 font-semibold">
-            Rol
             <input
               type="text"
               value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="mt-1 p-2 border rounded-lg focus:outline-none focus:border-blue-400"
+              onChange={(event) => setRole(event.target.value)}
+              placeholder="Rol"
+              className="h-12 rounded-2xl border border-border bg-card px-4 text-foreground outline-none focus:border-primary"
               required
             />
-          </label>
-
-          <label className="flex flex-col text-sm sm:col-span-2 text-slate-900 font-semibold">
-            Empresa / Proyecto
             <input
               type="text"
               value={company}
-              onChange={(e) => setCompany(e.target.value)}
-              className="mt-1 p-2 border rounded-lg focus:outline-none focus:border-blue-400"
+              onChange={(event) => setCompany(event.target.value)}
+              placeholder="Empresa / Proyecto"
+              className="h-12 rounded-2xl border border-border bg-card px-4 text-foreground outline-none focus:border-primary"
             />
-          </label>
-
-          <label className="flex flex-col text-sm sm:col-span-2 text-slate-900 font-semibold">
-            Testimonio
             <textarea
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="mt-1 p-2 border rounded-lg focus:outline-none focus:border-blue-400"
-              rows={4}
+              onChange={(event) => setMessage(event.target.value)}
+              placeholder="Testimonio"
+              rows={5}
+              className="min-h-32 rounded-[1.5rem] border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
               required
             />
-          </label>
-
-          <button type="submit" className="sm:col-span-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Enviar Testimonio
+          </div>
+          <button
+            type="submit"
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90"
+          >
+            Enviar testimonio
           </button>
         </form>
       </div>

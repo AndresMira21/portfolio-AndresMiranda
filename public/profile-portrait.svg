@@ -1,0 +1,21 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="640" rx="320" fill="#0F172A"/>
+  <circle cx="320" cy="250" r="128" fill="url(#paint0_linear_1_2)"/>
+  <path d="M176 530C176 447.157 243.157 380 326 380H314C396.843 380 464 447.157 464 530V560H176V530Z" fill="#1E293B"/>
+  <path d="M190 540C190 464.337 251.337 403 327 403H313C388.663 403 450 464.337 450 540V560H190V540Z" fill="url(#paint1_linear_1_2)"/>
+  <circle cx="320" cy="250" r="112" fill="#E5E7EB"/>
+  <path d="M257 238C257 202.101 286.101 173 322 173H338C373.899 173 403 202.101 403 238V285C403 320.899 373.899 350 338 350H322C286.101 350 257 320.899 257 285V238Z" fill="#F8FAFC"/>
+  <path d="M247 207C247 157.847 286.847 118 336 118C385.153 118 425 157.847 425 207V230H247V207Z" fill="#111827"/>
+  <path d="M238 226H432C432 209.983 419.017 197 403 197H267C250.983 197 238 209.983 238 226Z" fill="#111827"/>
+  <text x="320" y="586" text-anchor="middle" fill="#93C5FD" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="6">AM</text>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="208" y1="132" x2="432" y2="368" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear_1_2" x1="190" y1="403" x2="450" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+</svg>
