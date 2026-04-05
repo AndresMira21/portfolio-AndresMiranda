@@ -1,6 +1,13 @@
 ﻿import { SectionHeading } from "./SectionHeading";
 
-const academicExperience = [
+interface ExperienceItem {
+  title: string;
+  company: string;
+  period: string;
+  bullets: string[];
+}
+
+const academicExperience: ExperienceItem[] = [
   {
     title: "Ingeniería de Software",
     company: "Universidad Cooperativa de Colombia - Campus Pasto",
@@ -21,7 +28,7 @@ const academicExperience = [
   },
 ];
 
-const workExperience = [
+const workExperience: ExperienceItem[] = [
   {
     title: "Auxiliar en Soporte y Sistemas",
     company: "Politécnico San Juan de Pasto",
@@ -44,7 +51,7 @@ const workExperience = [
   },
 ];
 
-function TimelineItem({ item }: { item: typeof academicExperience[0] }) {
+function TimelineItem({ item }: { item: ExperienceItem }) {
   return (
     <article className="relative rounded-[1.75rem] border border-border bg-background/70 p-6 shadow-[0_16px_60px_-42px_rgba(15,23,42,0.7)]">
       <div className="absolute left-[-2rem] top-8 h-4 w-4 rounded-full bg-primary md:left-[-2.55rem]" />
