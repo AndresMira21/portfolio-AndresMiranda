@@ -11,21 +11,16 @@ export function HeroSection() {
       <div className="absolute -right-14 top-12 h-40 w-40 rounded-full bg-primary/15 blur-3xl" />
       <div className="relative grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="max-w-3xl">
-          <span className="section-kicker">Andrés Camilo Miranda Estrada</span>
           <h1 className="max-w-3xl text-5xl font-semibold tracking-tight text-balance text-foreground md:text-7xl">
             Hola, soy Andrés Miranda
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground md:text-xl">
-            Estudiante de Ingeniería de Software apasionado por el desarrollo
-            web, la inteligencia artificial y la creación de soluciones
-            tecnológicas innovadoras.
-          </p>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-            Me especializo en el desarrollo de aplicaciones modernas,
-            combinando backend robusto y frontend interactivo. Me interesa
-            especialmente aplicar la tecnología para resolver problemas reales
-            en áreas como finanzas, salud y sistemas inteligentes.
-          </p>
+
+          <div className="relative mt-8 max-w-28xl overflow-hidden rounded-3xl border border-border/70 bg-background/70 px-5 py-8 text-8xl font-semibold text-foreground shadow-[0_20px_60px_-35px_rgba(15,23,42,0.35)] md:text-9xl">
+            <span className="role-fade">Front-end</span>
+            <span className="role-fade">Back-end</span>
+            <span className="role-fade">Full Stack</span>
+          </div>
+
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href="#proyectos"
@@ -55,15 +50,15 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-md justify-center">
+        <div className="relative mx-auto flex w-full max-w-sm justify-center lg:justify-end lg:-mr-6">
           <div className="absolute inset-4 rounded-full bg-primary/20 blur-3xl" />
           <div className="relative overflow-hidden rounded-full border-4 border-primary/80 bg-card p-3 shadow-[0_30px_80px_-35px_rgba(59,130,246,0.6)]">
             <Image
               src="/profile-portrait.svg"
               alt="Retrato ilustrado de Andrés Miranda"
-              width={420}
-              height={420}
-              className="h-[260px] w-[260px] rounded-full object-cover md:h-[340px] md:w-[340px]"
+              width={360}
+              height={360}
+              className="h-[220px] w-[220px] rounded-full object-cover md:h-[280px] md:w-[280px]"
               priority
             />
           </div>

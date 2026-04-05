@@ -12,7 +12,7 @@ export default function Home() {
     <>
       <Navbar />
       <main className="min-h-screen bg-background text-foreground">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-16 pt-28 md:gap-10 md:px-6 md:pt-32">
+        <div className="mx-auto flex w-full flex-col gap-8 px-4 pb-16 pt-28 md:gap-10 md:px-6 md:pt-32">
           <HeroSection />
           <AboutSection />
           <ExperienceSection />

@@ -15,7 +15,7 @@ const skillGroups = [
   },
   {
     category: "Aprendiendo",
-    skills: ["Java avanzado", "MongoDB"],
+    skills: ["C#", "MongoDB"],
   },
 ];
 
@@ -42,26 +42,6 @@ export function AboutSection() {
               han permitido desarrollar habilidades sólidas en programación,
               diseño de sistemas y resolución de problemas.
             </p>
-          </div>
-
-          <div className="rounded-[1.75rem] border border-border bg-background/70 p-6">
-            <h3 className="text-lg font-semibold text-foreground">
-              Me interesa especialmente
-            </h3>
-            <ul className="mt-4 grid gap-3 text-sm text-muted-foreground md:grid-cols-2 md:text-base">
-              <li className="rounded-2xl border border-border bg-card/80 px-4 py-3">
-                Desarrollo de software escalable
-              </li>
-              <li className="rounded-2xl border border-border bg-card/80 px-4 py-3">
-                Inteligencia artificial aplicada
-              </li>
-              <li className="rounded-2xl border border-border bg-card/80 px-4 py-3">
-                Sistemas web modernos
-              </li>
-              <li className="rounded-2xl border border-border bg-card/80 px-4 py-3">
-                Automatización de procesos
-              </li>
-            </ul>
           </div>
         </div>
 

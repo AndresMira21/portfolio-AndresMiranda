@@ -46,7 +46,7 @@ export function ProjectsSection() {
       <SectionHeading
         kicker="Proyectos"
         title="Proyectos donde convierto ideas en productos funcionales."
-        description="Trabajo con interfaces claras, backend sólido y una capa de producto pensada para problemas reales en legaltech, salud y educación financiera."
+        description="Trabajo con interfaces claras, backend sólido y una capa de producto pensada para problemas reales."
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-3">
