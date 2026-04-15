@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "metadata": {
+    "title": "Andrés Miranda | Portafolio",
+    "description": "Portafolio personal de Andrés Miranda, estudiante de Ingeniería de Software enfocado en desarrollo full stack e inteligencia artificial."
+  },
+  "language": {
+    "toggle": "Cambiar idioma",
+    "toEnglish": "Cambiar a inglés",
+    "toSpanish": "Cambiar a español"
+  }
+}
