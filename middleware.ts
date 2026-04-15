@@ -1,9 +1,8 @@
 import createMiddleware from 'next-intl/middleware';
-import nextintlConfig from './next-intl.config';
+import nextIntlConfig from './next-intl.config';
 
-
-export default createMiddleware(nextintlConfig);
+export default createMiddleware(nextIntlConfig);
 
 export const config = {
-  matcher: ['/', '/(es|en)/:path*'],
+  matcher: ['/', '/(es|en)/:path*']
 };
