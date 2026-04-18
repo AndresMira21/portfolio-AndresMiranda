@@ -4,5 +4,9 @@ import nextIntlConfig from './next-intl.config';
 export default createMiddleware(nextIntlConfig);
 
 export const config = {
-  matcher: ['/((?!_next|_vercel|.*\\..*).*)' ]
+  matcher: [
+    '/',
+    '/(es|en)/:path*',
+    '/((?!api|_next|_vercel|.*\\..*).*)'  // ← agrega esta línea
+  ]
 };
