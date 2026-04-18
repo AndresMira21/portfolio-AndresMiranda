@@ -1,0 +1,223 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "metadata": {
+    "title": "Andrés Miranda | Portfolio",
+    "description": "Personal portfolio of Andrés Miranda, Software Engineering student focused on full stack development and artificial intelligence."
+  },
+  "language": {
+    "toggle": "Change language",
+    "toEnglish": "Switch to English",
+    "toSpanish": "Cambiar a español",
+    "select": "Select language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Andrés Miranda",
+    "roles": {
+      "fullStack": "Full stack Developer",
+      "backend": "Back-end Developer",
+      "frontend": "Front-end Developer"
+    },
+    "cta": {
+      "projects": "View projects",
+      "contact": "Contact me"
+    },
+    "tags": {
+      "fullStack": "Full stack",
+      "ai": "Applied AI",
+      "location": "Pasto, Colombia"
+    }
+  },
+  "about": {
+    "kicker": "About",
+    "title": "I build clean, useful web experiences with intention.",
+    "description": "A solid foundation in full stack development and constant curiosity about modern systems, automation and applied artificial intelligence.",
+    "content": {
+      "p1": "I am a Software Engineering student focused on full stack development and AI-based solutions. I am characterized by being self-taught, proactive and results-oriented.",
+      "p2": "I have worked on various academic and personal projects that have allowed me to develop solid skills in programming, system design and problem solving."
+    },
+    "skills": {
+      "title": "Current stack and next step",
+      "subtitle": "Skills / Technologies",
+      "categories": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "tools": "Tools",
+        "learning": "Learning"
+      }
+    }
+  },
+  "experience": {
+    "kicker": "Experience",
+    "title": "A career that mixes technical training, academia and real support.",
+    "description": "A journey focused on systems, technological support and continuous learning, with academic and work experience that lands in functional projects.",
+    "sections": {
+      "academic": "Academic Training",
+      "work": "Work Experience"
+    },
+    "academic_items": {
+      "engineering": {
+        "title": "Software Engineering",
+        "company": "Universidad Cooperativa de Colombia - Campus Pasto",
+        "period": "2024 - Present"
+      },
+      "technical": {
+        "title": "Labor Technician in Support, Systems and Computing",
+        "company": "CINAR Sistemas",
+        "period": "2023 - 2025"
+      },
+      "bachelor": {
+        "title": "Academic Bachelor",
+        "company": "Instituto San Francisco de Asís",
+        "period": "Completed 2023"
+      }
+    },
+    "work_items": {
+      "support": {
+        "title": "Support and Systems Assistant",
+        "company": "Politécnico San Juan de Pasto",
+        "period": "Feb 2025 - Jun 2025",
+        "bullets": {
+          "preventive": "Preventive and corrective maintenance of computer equipment",
+          "networks": "Installation/configuration of wired and wireless networks",
+          "security": "Installation and configuration of security cameras",
+          "support": "User support on digital platforms"
+        }
+      },
+      "admin": {
+        "title": "Administrative Assistant",
+        "company": "Mundo Click",
+        "period": "2018 - 2020",
+        "bullets": {
+          "inventory": "Monitoring and control of materials and products inventory",
+          "management": "Organization and management of administrative resources"
+        }
+      }
+    }
+  },
+  "projects": {
+    "kicker": "Projects",
+    "title": "Projects where I turn ideas into functional products.",
+    "description": "I work with clear interfaces, solid backend and a product layer designed for real problems.",
+    "buttons": {
+      "frontend": "Frontend GitHub",
+      "backend": "Backend GitHub",
+      "github": "GitHub",
+      "demo": "Demo"
+    },
+    "moreProjects": {
+      "heading": "Other academic and personal projects",
+      "p1": "Beyond the main projects, I have developed multiple applications and scripts ranging from complete CRUD systems to task automation.",
+      "p2": "In the academic field I built systems like library managers and survey platforms, applying MVC architecture, user authentication, and relational databases.",
+      "p3": "These works consolidate skills in full-stack development, database handling, validations, and efficiency for repetitive tasks."
+    },
+    "items": {
+      "legalconnect": {
+        "title": "LegalConnect",
+        "description": "Technology platform oriented to support legal work. It allows analyzing contractual clauses, identifying possible risks and facilitating informed decision making through the use of artificial intelligence."
+      },
+      "finassistant": {
+        "title": "FinAssistant",
+        "description": "AI-based application designed to solve financial mathematics problems. It allows performing complex calculations, explaining procedures step by step and supporting learning in financial topics interactively."
+      },
+      "clinicalrecords": {
+        "title": "Clinical History System",
+        "description": "Web system for the management of digital clinical histories, allowing to store patient information, medical records, informed consents and test results. Designed to improve organization, security and access to information in health environments."
+      }
+    }
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Let's talk about ideas, collaboration or the next project.",
+    "description": "You can write to me directly through any of these channels or leave a message from the form.",
+    "contacts": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "whatsapp": "WhatsApp"
+    },
+    "form": {
+      "name": "Your name",
+      "namePlaceholder": "Your name",
+      "email": "Your email",
+      "emailPlaceholder": "Your email",
+      "subject": "Subject",
+      "subjectPlaceholder": "Subject",
+      "message": "Your message",
+      "messagePlaceholder": "Tell me what we can work on",
+      "submit": "Send message"
+    }
+  },
+  "testimonials": {
+    "kicker": "Testimonials",
+    "title": "Opinions that speak of collaboration, execution and technical criteria.",
+    "description": "I keep this section as a living space to record feedback from personal and academic projects.",
+    "featured": "Featured testimonial",
+    "nav": {
+      "previous": "Previous testimonial",
+      "next": "Next testimonial"
+    },
+    "aria": {
+      "gotoTestimonial": "Go to testimonial {number}"
+    },
+    "form": {
+      "title": "Add testimonial",
+      "name": "Name",
+      "namePlaceholder": "Name",
+      "role": "Role",
+      "rolePlaceholder": "Role",
+      "company": "Company / Project",
+      "companyPlaceholder": "Company / Project",
+      "message": "Testimonial",
+      "messagePlaceholder": "Testimonial",
+      "submit": "Send testimonial"
+    },
+    "defaults": {
+      "company": "Independent"
+    },
+    "items": {
+      "andres": {
+        "name": "Andrés Miranda",
+        "role": "Full-stack Developer",
+        "company": "Personal Project",
+        "message": "Excellent experience collaborating and solving challenges with a practical approach. Recommended for agile teams."
+      },
+      "maria": {
+        "name": "María Pérez",
+        "role": "Software Engineer",
+        "company": "Academic Projects",
+        "message": "Implemented robust solutions with good architecture and clear documentation. Very professional."
+      },
+      "carlos": {
+        "name": "Carlos Torres",
+        "role": "Data Analyst",
+        "company": "Scripting and Automation",
+        "message": "Generated efficient scripts for automation and reports. Great code quality and efficiency."
+      }
+    }
+  },
+  "footer": {
+    "name": "Andrés Miranda",
+    "description": "Software Engineering student with interest in web development, artificial intelligence and innovative technological solutions.",
+    "contact": "andresestrada0630@gmail.com • +57 3162740777 • Pasto, Colombia",
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "copyright": "© 2026 Andrés Miranda. All rights reserved."
+  },
+  "accessibility": {
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  }
+}

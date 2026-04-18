@@ -2,8 +2,11 @@
 
 import { ArrowRight, Mail } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
+import { useTranslations } from "next-intl";
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+
   return (
     <section
       id="inicio"
@@ -14,17 +17,17 @@ export function HeroSection() {
       <div className="relative flex flex-col items-start gap-10 w-full max-w-7xl">
         <div className="w-full">
           <h1 className="text-5xl font-semibold tracking-tight text-balance text-foreground md:text-7xl">
-            Hola, soy Andrés Miranda
+            {t('greeting')}
           </h1>
 
           <div className="min-h-24 text-5xl md:text-8xl mb-8 font-black text-transparent bg-clip-text bg-linear-to-r from-[#4352f1] to-[#9003bb]">
             <TypeAnimation
               sequence={[
-                "Full stack Developer",
+                t('roles.fullStack'),
                 1000,
-                "Back-end Developer",
+                t('roles.backend'),
                 1000,
-                "Front-end Developer",
+                t('roles.frontend'),
                 1000,
               ]}
               wrapper="span"
@@ -39,26 +42,26 @@ export function HeroSection() {
               href="#proyectos"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90"
             >
-              Ver proyectos
+              {t('cta.projects')}
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#contacto"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/80 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
             >
-              Contactarme
+              {t('cta.contact')}
               <Mail className="h-4 w-4" />
             </a>
           </div>
           <div className="mt-10 flex flex-wrap gap-3 text-sm text-muted-foreground">
             <span className="rounded-full border border-border bg-background/70 px-4 py-2">
-              Full stack
+              {t('tags.fullStack')}
             </span>
             <span className="rounded-full border border-border bg-background/70 px-4 py-2">
-              IA aplicada
+              {t('tags.ai')}
             </span>
             <span className="rounded-full border border-border bg-background/70 px-4 py-2">
-              Pasto, Colombia
+              {t('tags.location')}
             </span>
           </div>
         </div>

@@ -2,18 +2,21 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ThemeToggle } from "./ThemeToggle";
-
-const navigation = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#acerca", label: "Acerca" },
-  { href: "#experiencia", label: "Experiencia" },
-  { href: "#proyectos", label: "Proyectos" },
-  { href: "#contacto", label: "Contacto" },
-];
+import { LanguageToggle } from "./LanguageToggle";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('navbar');
+
+  const navigation = [
+    { href: "#inicio", label: t('home') },
+    { href: "#acerca", label: t('about') },
+    { href: "#experiencia", label: t('experience') },
+    { href: "#proyectos", label: t('projects') },
+    { href: "#contacto", label: t('contact') },
+  ];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6">
@@ -35,10 +38,12 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
+          <LanguageToggle />
           <ThemeToggle />
         </div>
 
         <div className="flex items-center gap-3 md:hidden">
+          <LanguageToggle />
           <ThemeToggle />
           <button
             type="button"
