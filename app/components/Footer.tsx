@@ -1,4 +1,5 @@
 ﻿import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const socialLinks = [
   {
@@ -24,19 +25,20 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const t = useTranslations('footer');
+
   return (
     <footer className="border-t border-border/80 bg-background/90 px-4 py-10 backdrop-blur md:px-6">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 rounded-[2rem] border border-border/80 bg-card/70 px-6 py-8 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.8)] md:flex-row md:items-end md:justify-between md:px-8">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 rounded-4xl border border-border/80 bg-card/70 px-6 py-8 shadow-[0_24px_70px_-45px_rgba(15,23,42,0.8)] md:flex-row md:items-end md:justify-between md:px-8">
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
-            Andrés Miranda
+            {t('name')}
           </p>
           <p className="max-w-md text-sm leading-7 text-muted-foreground md:text-base">
-            Estudiante de Ingeniería de Software con interés en desarrollo web,
-            inteligencia artificial y soluciones tecnológicas innovadoras.
+            {t('description')}
           </p>
           <p className="text-sm text-muted-foreground">
-            andresestrada0630@gmail.com • +57 3162740777 • Pasto, Colombia
+            {t('contact')}
           </p>
         </div>
 
@@ -61,14 +63,14 @@ export function Footer() {
             })}
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
-            <a href="#inicio" className="hover:text-primary">Inicio</a>
-            <a href="#acerca" className="hover:text-primary">Acerca</a>
-            <a href="#experiencia" className="hover:text-primary">Experiencia</a>
-            <a href="#proyectos" className="hover:text-primary">Proyectos</a>
-            <a href="#contacto" className="hover:text-primary">Contacto</a>
+            <a href="#inicio" className="hover:text-primary">{t('links.home')}</a>
+            <a href="#acerca" className="hover:text-primary">{t('links.about')}</a>
+            <a href="#experiencia" className="hover:text-primary">{t('links.experience')}</a>
+            <a href="#proyectos" className="hover:text-primary">{t('links.projects')}</a>
+            <a href="#contacto" className="hover:text-primary">{t('links.contact')}</a>
           </div>
           <p className="text-sm text-muted-foreground">
-            © 2026 Andrés Miranda. Todos los derechos reservados.
+            {t('copyright')}
           </p>
         </div>
       </div>
