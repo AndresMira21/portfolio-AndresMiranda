@@ -152,7 +152,10 @@
       "subjectPlaceholder": "Asunto",
       "message": "Tu mensaje",
       "messagePlaceholder": "Cuéntame en qué podemos trabajar",
-      "submit": "Enviar mensaje"
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "successMessage": "¡Mensaje enviado! Te responderé pronto.",
+      "errorMessage": "Hubo un error. Intenta de nuevo."
     }
   },
   "testimonials": {

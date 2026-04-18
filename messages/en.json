@@ -152,7 +152,10 @@
       "subjectPlaceholder": "Subject",
       "message": "Your message",
       "messagePlaceholder": "Tell me what we can work on",
-      "submit": "Send message"
+      "submit": "Send message",
+      "sending": "Sending...",
+      "successMessage": "Message sent! I'll get back to you soon.",
+      "errorMessage": "Something went wrong. Please try again."
     }
   },
   "testimonials": {

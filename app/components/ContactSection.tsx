@@ -1,5 +1,6 @@
-﻿'use client';
+﻿"use client";
 
+import { useState } from "react";
 import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { Input } from "./ui/input";
@@ -7,7 +8,44 @@ import { Textarea } from "./ui/textarea";
 import { useTranslations } from "next-intl";
 
 export function ContactSection() {
-  const t = useTranslations('contact');
+  const t = useTranslations("contact");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const contactItems = [
     {
@@ -39,16 +77,15 @@ export function ContactSection() {
   return (
     <section id="contacto" className="section-shell px-6 py-10 md:px-10 md:py-12">
       <SectionHeading
-        kicker={t('kicker')}
-        title={t('title')}
-        description={t('description')}
+        kicker={t("kicker")}
+        title={t("title")}
+        description={t("description")}
       />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-4">
           {contactItems.map((item) => {
             const Icon = item.icon;
-
             return (
               <a
                 key={item.labelKey}
@@ -73,54 +110,86 @@ export function ContactSection() {
           })}
         </div>
 
-        <form className="rounded-[1.75rem] border border-border bg-background/65 p-6 md:p-8">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-[1.75rem] border border-border bg-background/65 p-6 md:p-8"
+        >
           <div className="grid gap-4 md:grid-cols-2">
             <div className="md:col-span-1">
               <label className="mb-2 block text-sm font-medium text-foreground">
-                {t('form.name')}
+                {t("form.name")}
               </label>
               <Input
                 type="text"
-                placeholder={t('form.namePlaceholder')}
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder={t("form.namePlaceholder")}
                 className="h-12 rounded-2xl border-border bg-card px-4"
+                required
               />
             </div>
             <div className="md:col-span-1">
               <label className="mb-2 block text-sm font-medium text-foreground">
-                {t('form.email')}
+                {t("form.email")}
               </label>
               <Input
                 type="email"
-                placeholder={t('form.emailPlaceholder')}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder={t("form.emailPlaceholder")}
                 className="h-12 rounded-2xl border-border bg-card px-4"
+                required
               />
             </div>
             <div className="md:col-span-2">
               <label className="mb-2 block text-sm font-medium text-foreground">
-                {t('form.subject')}
+                {t("form.subject")}
               </label>
               <Input
                 type="text"
-                placeholder={t('form.subjectPlaceholder')}
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder={t("form.subjectPlaceholder")}
                 className="h-12 rounded-2xl border-border bg-card px-4"
+                required
               />
             </div>
             <div className="md:col-span-2">
               <label className="mb-2 block text-sm font-medium text-foreground">
-                {t('form.message')}
+                {t("form.message")}
               </label>
               <Textarea
-                placeholder={t('form.messagePlaceholder')}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={t("form.messagePlaceholder")}
                 className="min-h-36 rounded-3xl border-border bg-card px-4 py-3"
+                required
               />
             </div>
           </div>
 
+          {/* Feedback al usuario */}
+          {status === "success" && (
+            <p className="mt-4 text-sm font-medium text-green-500">
+              ✅ {t("form.successMessage")}
+            </p>
+          )}
+          {status === "error" && (
+            <p className="mt-4 text-sm font-medium text-red-500">
+              ❌ {t("form.errorMessage")}
+            </p>
+          )}
+
           <button
             type="submit"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90"
+            disabled={status === "loading"}
+            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {t('form.submit')}
+            {status === "loading" ? t("form.sending") : t("form.submit")}
           </button>
         </form>
       </div>
