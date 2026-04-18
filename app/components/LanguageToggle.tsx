@@ -17,7 +17,7 @@ export function LanguageToggle() {
   const handleLanguageChange = (newLocale: string) => {
     const currentPath = window.location.pathname;
     // Remove the locale prefix and keep the rest of the path
-    const pathWithoutLocale = currentPath.replace(/^\/(es|en)/, '');
+    const pathWithoutLocale = currentPath.replace(/^\/(es|en)/, '') || '/';
     const newPath = `/${newLocale}${pathWithoutLocale}`;
     window.location.href = newPath;
   };

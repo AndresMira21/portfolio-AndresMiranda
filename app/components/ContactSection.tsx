@@ -1,4 +1,6 @@
-﻿import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
+﻿'use client';
+
+import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";

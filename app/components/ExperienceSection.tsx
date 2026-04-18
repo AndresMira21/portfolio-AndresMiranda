@@ -1,4 +1,6 @@
-﻿import { SectionHeading } from "./SectionHeading";
+﻿'use client';
+
+import { SectionHeading } from "./SectionHeading";
 import { useTranslations } from "next-intl";
 
 interface ExperienceItem {

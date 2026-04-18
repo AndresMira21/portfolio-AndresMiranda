@@ -1,4 +1,6 @@
-﻿import Image from "next/image";
+﻿'use client';
+
+import Image from "next/image";
 import { ArrowUpRight, GitBranch } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { useTranslations } from "next-intl";

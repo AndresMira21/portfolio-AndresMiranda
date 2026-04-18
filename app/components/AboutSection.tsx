@@ -1,4 +1,5 @@
-﻿import { ca } from "react-day-picker/locale";
+﻿'use client';
+
 import { SectionHeading } from "./SectionHeading";
 import { useTranslations } from "next-intl";
 

@@ -1,4 +1,6 @@
-﻿import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
+﻿'use client';
+
+import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const socialLinks = [
