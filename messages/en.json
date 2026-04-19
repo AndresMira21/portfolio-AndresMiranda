@@ -19,7 +19,9 @@
     "spanish": "Spanish"
   },
   "hero": {
-    "greeting": "Hi, I'm Andrés Miranda",
+    "greeting": {
+      "pre": "Hi, I'm"
+    },
     "roles": {
       "fullStack": "Full stack Developer",
       "backend": "Back-end Developer",
