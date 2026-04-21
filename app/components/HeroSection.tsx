@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Download } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -58,6 +58,14 @@ export function HeroSection() {
             >
               {t('cta.contact')}
               <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href="/CV_AndresMiranda.pdf"
+              download
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/80 px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
+            >
+              {t('cta.downloadCV')}
+              <Download className="h-4 w-4" />
             </a>
           </div>
 

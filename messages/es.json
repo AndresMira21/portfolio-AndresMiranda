@@ -29,7 +29,8 @@
     },
     "cta": {
       "projects": "Ver proyectos",
-      "contact": "Contactarme"
+      "contact": "Contactarme",
+      "downloadCV": "Descargar CV"
     },
     "tags": {
       "fullStack": "Full stack",
