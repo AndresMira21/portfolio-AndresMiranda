@@ -1,7 +1,6 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
 import { SectionHeading } from "./SectionHeading";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -52,25 +51,29 @@ export function ContactSection() {
       labelKey: "contacts.email",
       value: "andresestrada0630@gmail.com",
       href: "mailto:andresestrada0630@gmail.com",
-      icon: Mail,
+      icon: null,
+      imageSrc: "/mail.svg",
     },
     {
       labelKey: "contacts.github",
       value: "AndresMira21",
       href: "https://github.com/AndresMira21",
-      icon: GitBranch,
+      icon: null,
+      imageSrc: "/brand-github.svg",
     },
     {
       labelKey: "contacts.linkedin",
       value: "Andres Camilo Miranda Estrada",
       href: "https://www.linkedin.com/in/andres-camilo-miranda-estrada-364490296",
-      icon: BriefcaseBusiness,
+      icon: null,
+      imageSrc: "/brand-linkedin.svg",
     },
     {
       labelKey: "contacts.whatsapp",
       value: "+57 3162740777",
       href: "https://wa.me/573162740777",
-      icon: MessageCircleMore,
+      icon: null,
+      imageSrc: "/brand-whatsapp.svg",
     },
   ];
 
@@ -85,7 +88,6 @@ export function ContactSection() {
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-4">
           {contactItems.map((item) => {
-            const Icon = item.icon;
             return (
               <a
                 key={item.labelKey}
@@ -95,7 +97,13 @@ export function ContactSection() {
                 className="group flex items-center gap-4 rounded-3xl border border-border bg-background/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_24px_50px_-38px_rgba(59,130,246,0.35)]"
               >
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/12 text-primary">
-                  <Icon className="h-5 w-5" />
+                  {item.imageSrc && (
+                    <img
+                      src={item.imageSrc}
+                      alt={t(item.labelKey)}
+                      className="h-5 w-5 object-contain dark:invert"
+                    />
+                  )}
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">

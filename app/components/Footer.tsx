@@ -1,28 +1,31 @@
 ﻿'use client';
 
-import { BriefcaseBusiness, GitBranch, Mail, MessageCircleMore } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const socialLinks = [
   {
     label: "GitHub",
     href: "https://github.com/AndresMira21",
-    icon: GitBranch,
+    icon: null,
+    imageSrc: "/brand-github.svg",
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/andres-camilo-miranda-estrada-364490296",
-    icon: BriefcaseBusiness,
+    icon: null,
+    imageSrc: "/brand-linkedin.svg",
   },
   {
     label: "Email",
     href: "mailto:andresestrada0630@gmail.com",
-    icon: Mail,
+    icon: null,
+    imageSrc: "/mail.svg",
   },
   {
     label: "WhatsApp",
     href: "https://wa.me/573162740777",
-    icon: MessageCircleMore,
+    icon: null,
+    imageSrc: "/brand-whatsapp.svg",
   },
 ];
 
@@ -47,8 +50,6 @@ export function Footer() {
         <div className="space-y-4">
           <div className="flex flex-wrap gap-3">
             {socialLinks.map((item) => {
-              const Icon = item.icon;
-
               return (
                 <a
                   key={item.label}
@@ -59,7 +60,13 @@ export function Footer() {
                   aria-label={item.label}
                   title={item.label}
                 >
-                  <Icon className="h-5 w-5" />
+                  {item.imageSrc && (
+                    <img
+                      src={item.imageSrc}
+                      alt={item.label}
+                      className="h-5 w-5 object-contain dark:invert"
+                    />
+                  )}
                 </a>
               );
             })}
